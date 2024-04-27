@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend+Deca:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$mainBg: hsl(233, 47%, 7%);
+$cardBg: hsl(244, 38%, 16%);
+$lightTextColor: hsl(0, 0%, 100%);
+$lightTrsnpTextColor: hsla(0, 0%, 100%, 0.75);
+$accent: hsl(277, 64%, 61%);
+
+body {
+  background: $mainBg;
+}
+
+.card {
+  width: min(87%, 1110px);
+  border-radius: 0.5rem;
+  background: $cardBg;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  picture {
+    border-radius: 0 0.5rem 0.5rem 0;
+    background: $accent;
+    order: 2;
+
+    .sideimg {
+      width: 100%;
+      height: 100%;
+      border-radius: 0 0.5rem 0.5rem 0;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      mix-blend-mode: multiply;
+      opacity: 0.75;
+    }
+  }
+}
+
+.content {
+  width: calc(500px + 70px);
+  padding: 4.45rem 4.5rem 4rem;
+
+  h1 {
+    margin-bottom: 1.6rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    color: $lightTextColor;
+    font-family: "Inter", sans-serif;
+
+    span {
+      color: $accent;
+    }
+  }
+
+  p {
+    padding-right: 2.5rem;
+    font-size: 0.938rem;
+    color: $lightTrsnpTextColor;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    line-height: 1.7;
+  }
+
+  .stats {
+    margin-top: 4.4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .value {
+      color: $lightTextColor;
+      font-size: 1.5rem;
+      font-family: "Inter", sans-serif;
+    }
+
+    .name {
+      margin-top: 0.4rem;
+      display: block;
+      font-size: 0.825rem;
+      $lightTrsnpTextColor: hsla(0, 0%, 100%, 0.6);
+      color: $lightTrsnpTextColor;
+      font-family: "Lexend Deca", sans-serif;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .card {
+    margin: 5.5rem 0;
+    grid-template-columns: 1fr;
+    position: relative;
+    transform: translate(-50%);
+
+    picture {
+      width: 100%;
+      border-radius: 0.5rem 0.5rem 0 0;
+      order: unset;
+
+      .sideimg {
+        width: 100%;
+        height: 240px;
+        border-radius: 0.5rem 0.5rem 0 0;
+        object-position: top;
+      }
+    }
+
+    .content {
+      width: 100%;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      line-height: 1.15;
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+
+      p {
+        padding: 0 0.5rem;
+      }
+
+      .stats {
+        margin-top: 2.4rem;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+      }
+    }
+  }
+}
